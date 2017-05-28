@@ -101,7 +101,7 @@
   become: yes
 
 - name: Ensure openvpn key dir has the right permission
-  file: path={{openvpn_keydir}} state=directory mode=0700 owner={{openvpn_user}}
+  file: path={{openvpn_keydir}} state=directory mode=0700 owner=root
   become: yes
 
 - name: Set ip forwarding in the sysctl file and reload if necessary
