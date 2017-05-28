@@ -18,9 +18,13 @@ proto {{ openvpn_proto }}
 # Encrypt packets with cipher algorithm
 cipher {{ openvpn_cipher }}
 
+tls-cipher {{ openvpn_tls_cipher }}
+auth {{ openvpn_auth }}
+
 # The hostname/IP and port of the server. You can have multiple remote entries
 # to load balance between the servers.
-remote {{openvpn_host}} {{openvpn_port}}
+tls-remote {{openvpn_host}} {{openvpn_port}}
+remote-cert-tls server
 
 # Keep trying indefinitely to resolve the host name of the OpenVPN server.
 # Very useful on machines which are not permanently connected to the internet
